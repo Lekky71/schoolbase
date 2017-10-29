@@ -6,7 +6,7 @@ $(document).ready(function($){
         $.get('/students/view/search', $('#search-student-form').serialize(),function (data) {
             let myData = eval(data);
             let content = $.fillTable(myData);
-            $('#search-able-body').html('');
+            $('#search-table-body').html('');
             // let reply = '<p>Student has been successfully added </p>';
             $(content).appendTo('#search-table-body');
         });

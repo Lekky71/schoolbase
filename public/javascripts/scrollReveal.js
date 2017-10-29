@@ -262,7 +262,7 @@ window.scrollReveal = (function (window) {
             el.setAttribute('data-scroll-reveal-complete',true);
           }, css.totalDuration);
         }
-      return;
+
       }
     },
 
@@ -288,12 +288,12 @@ window.scrollReveal = (function (window) {
       } else {
 
         if (this.options.enter == "top" || this.options.enter == "bottom") {
-          enter = this.options.enter
+          enter = this.options.enter;
           axis = "y";
         }
 
         if (this.options.enter == "left" || this.options.enter == "right") {
-          enter = this.options.enter
+          enter = this.options.enter;
           axis = "x";
         }
       }
@@ -363,7 +363,7 @@ window.scrollReveal = (function (window) {
         if (!isNaN(el.offsetLeft)) {
           offsetLeft += el.offsetLeft;
         }
-      } while (el = el.offsetParent)
+      } while (el = el.offsetParent);
 
       return {
         top: offsetTop,

@@ -282,7 +282,7 @@ h1::after {
 }
 
 li:hover{
-    background: #2f9484;
+    background: #28a745;
 }
 
 .search-button {
@@ -315,4 +315,20 @@ tr:hover {
 
 .page-body.overlay {
     background: rgba(38, 57, 88, 0.89);
+}
+
+.general-container {
+    background: linear-gradient(0deg, #28a745, rgba(38, 57, 88, 0.89)), url(/images/school_image.jpg) repeat;
+
+}
+
+.student-page-button {
+    background: rgba(38, 57, 88, 0.89);
+    width: 200px;
+    border-color:#28a745 ;
+}
+
+.student-page-button:hover {
+    background: #2f9484;
+    border-color: #2f9484;
 }

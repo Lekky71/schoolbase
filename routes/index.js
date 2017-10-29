@@ -24,7 +24,7 @@ router.get('/students/view/all-students', function (req, res) {
             if (err) throw err;
             console.log('successfully fetched all students');
             db.close();
-            res.send(result);
+            res.json(result);
         });
     });
 });
@@ -36,7 +36,7 @@ router.get('/students/view/all-students/student',function (req, res) {
         if (err) throw err;
         db.collection('all-students').find({matric_number: query}).toArray(function (err, result) {
             if (err) throw err;
-            res.send(result[0]);
+            res.json(result[0]);
             console.log(result[0]);
             db.close();
         });
@@ -52,7 +52,7 @@ router.get('/students/view/search', function (req, res) {
        console.log('found the students searched for');
        db.collection('all-students').find({ name : {$regex: `${query}*`, $options:'i'}}).toArray(function (err, result) {
            if (err) throw err;
-            res.send(result);
+            res.json(result);
         });
     });
 });
@@ -100,7 +100,7 @@ router.delete('/students/view/all-students/student/delete',function (req, res) {
             console.log(student.name);
             db.close();
             console.log(obj.deletedCount);
-            res.send(obj.deletedCount.toString()); //info about the deleted document
+            res.json(obj.deletedCount.toString()); //info about the deleted document
         });
     });
 
@@ -115,10 +115,11 @@ router.post('/students/view/all-students/edit', function (req, response) {
             if (err) throw err;
             console.log('One document deleted');
             db.close();
-            response.send(res); //info about the deleted document
+            response.json(res); //info about the deleted document
         });
     });
 });
+
 module.exports = router;
 
 
@@ -128,7 +129,7 @@ function insertStudent(theStudent, resp) {
         db.collection('all-students').insertOne(theStudent, function (err, res) {
             if (err) throw err;
             console.log('Student has been added to the database');
-            resp.send(res);
+            resp.json(res);
             // resp.render('add_a_student', {title: 'Add A Student'});
             // resp.send(`Student ${theStudent.name} has been added`);
             db.close();

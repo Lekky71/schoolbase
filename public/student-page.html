@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title><%= student.name %></title>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap/bootstrap-grid.css">
     <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap/bootstrap-reboot.css">
@@ -17,7 +17,7 @@
     <script href="/javascripts/bootstrap-js/bootstrap.js" ></script>
     <script type="text/javascript" src="/javascripts/student-page.js"></script>
 </head>
-<body style="background: rgba(38, 57, 88, 0.89)">
+<body class="general-container">
 <div class="navbar navbar-inverse navbar-fixed-top navbar-collapse collapse" id="menu">
     <div class="container">
         <a href="/"><img class="logo-custom" src="/images/schoolbaselogo.png" alt="school logo"/></a>
@@ -43,12 +43,15 @@
             <div id="student-info" class="col-md-6">
             <!--student information will be injected here-->
             </div>
-            <div class="col-md-5" style="margin-top: 2%">
+            <div class="col-md-6 row" style="margin-top: 2%">
                 <img src="/images/schoolbaselogo.png" id="student-image">
+                <div class="col-md-1">
+                <button id="delete-student-button" type="submit" class="student-page-button">Delete Student</button>
+                <div style="height: 30%"></div>
+                <button id="edit-student-button" type="submit" class="student-page-button">Edit Student</button>
+                </div>
             </div>
-        </div>
-        <div>
-            <button id="delete-student-button" type="submit">Delete Student</button>
+
         </div>
 
     </div>
