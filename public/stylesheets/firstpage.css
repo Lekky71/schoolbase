@@ -1,0 +1,43 @@
+body {
+
+}
+
+.nav-header{
+    background: rgba(28, 43, 75, 1);
+}
+.nav-text {
+    color: white;
+    font-size: 50px;
+    font-family: "Trebuchet MS", cursive;
+    font-weight: 500;
+}
+
+.cd-side-nav {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.2s 0s, visibility 0s 0.2s;
+}
+.cd-side-nav.nav-is-visible {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.2s 0s, visibility 0s 0s;
+}
+
+.navigation-right {
+    background: rgba(28, 43, 75, 1);
+
+    height: 500px;
+}
+.navigation-item {
+    /*background: #1A94C4;*/
+    background-color:#2d3d5a;
+    color: white;
+    margin-top: 10px;
+    width: inherit;
+    font-size: 30px;
+}
+

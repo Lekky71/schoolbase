@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%=title%></title>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap/bootstrap-grid.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap/bootstrap-reboot.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/firstpage.css">
+
+    <link href="/stylesheets/font-awesome.min.css" rel="stylesheet"/>
+    <link href="/stylesheets/flexslider.css" rel="stylesheet"/>
+    <link href="/stylesheets/style.css" rel="stylesheet"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script href="/javascripts/bootstrap-js/bootstrap.js" ></script>
+
+    <script type="text/javascript">
+        $(document).ready(function ($) {
+            $('#form').submit(function(event){
+                event.preventDefault();
+                $.post('/students/edit/add-student', $('#form').serialize(),function (data) {
+                    $('.add-student-input-div').html('');
+                    let res = eval(data);
+                    if(res.n === 1 && res.ok === 1){
+                        let reply = '<p>Student has been successfully added </p>';
+                        $(reply).appendTo('#input-container');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top navbar-collapse collapse" id="menu">
+    <div class="container">
+        <a href="/"><img class="logo-custom" src="/images/schoolbaselogo.png" alt="school logo" /></a>
+        <div class="col">
+            <a href="/"><h1 class="col-md-8" style="color: white; padding-top: 20px; padding-left: 30%" href="/">SCHOOL BASE</h1></a>
+            <div class="header-homepage">
+                <ul class=" navbar-nav flex-md-row" style="padding-left: 60px; justify-content: flex-end;">
+                    <li><a href="add-student.html">ADD A STUDENT</a></li>
+                    <li><a href="all-students.html">VIEW ALL STUDENTS</a></li>
+                    <li><a href="search-student.html">SEARCH FOR A STUDENT</a></li>
+                    <li><a href="">LOG OUT</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="row add-student-input-div" id="input-container">
+    <form id="form" class="form-group col" name="student-info-form" method="post" action="/students/edit/add-student">
+        <div class="col">
+        <label class="col-form-label-lg">Student Name</label>
+        <input class="form-text student-input" name="name" placeholder="John Doe" required>
+        </div>
+        <div class="col">
+            <label class="col-form-label-lg">Matric Number</label>
+            <input class="form-text student-input" name="matricNumber" placeholder="CSC/20**/***" required>
+        </div>
+        <div class="col">
+            <label class="col-form-label-lg">Faculty</label>
+            <input class="form-text student-input" name="faculty" placeholder="Sciences" required>
+        </div>
+        <div class="col">
+            <label class="col-form-label-lg" >Department</label>
+            <input class="form-text student-input" name="department"  placeholder="Physics" required>
+        </div>
+        <div class="col">
+            <label class="col-form-label-lg" >Age of Student</label>
+            <input class="form-text student-input" name="age"  placeholder="38" required>
+        </div>
+        <div class="col">
+            <label class="col-form-label-lg" >Cumulative Grade Point Average (CGPA)</label>
+            <input class="form-text student-input" name="cgpa"  placeholder="4.75" required>
+        </div>
+        <div class="col">
+            <label class="col-form-label-lg" >Student Level</label>
+            <select class="form-text student-input" name="level" type="number" required>
+                <option>100</option>
+                <option>200</option>
+                <option>300</option>
+                <option>400</option>
+                <option>500</option>
+                <option>600</option>
+                <option>700</option>
+            </select>
+        </div>
+        <div class="col">
+            <div class="flex-row">
+            <div>
+                <label class="col-form-label-lg" >Country</label>
+                <input class="form-text student-input-origin" name="country" placeholder="Nigeria" required>
+            </div>
+            <div>
+                <label class="col-form-label-lg" >State Of Origin</label>
+                <input class="form-text student-input-origin" name="state" placeholder="Osun" required>
+            </div>
+            </div>
+        </div>
+
+        <div class="col">
+            <label class="col-form-label-lg">Upload Picture</label>
+            <input class="form-check" type="file" name="pic" accept="image/gif, image/jpeg, image/png">
+
+            <!--<button class="form-check" name="picUrl" type="button">Upload Student Picture</button>-->
+        </div>
+        <div class="col">
+            <label class="col-form-label-lg">About Student</label>
+            <input class="form-text student-input" name="about"  type="text" style="height: 200px" required>
+        </div>
+
+        <div class="col" style="margin-top: 20px">
+            <button type="submit">SUBMIT</button>
+        </div>
+    </form>
+</div>
+
+</body>
+
+
+</html>

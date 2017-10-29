@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><%= student.name %></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap/bootstrap-grid.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/bootstrap/bootstrap-reboot.css">
+    <link rel="stylesheet" type="text/css" href="/stylesheets/firstpage.css">
+
+    <link href="/stylesheets/font-awesome.min.css" rel="stylesheet"/>
+    <link href="/stylesheets/flexslider.css" rel="stylesheet"/>
+    <link href="/stylesheets/style.css" rel="stylesheet"/>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script href="/javascripts/bootstrap-js/bootstrap.js" ></script>
+    <script type="text/javascript" src="/javascripts/student-page.js"></script>
+</head>
+<body style="background: rgba(38, 57, 88, 0.89)">
+<div class="navbar navbar-inverse navbar-fixed-top navbar-collapse collapse" id="menu">
+    <div class="container">
+        <a href="/"><img class="logo-custom" src="/images/schoolbaselogo.png" alt="school logo"/></a>
+        <div class="col">
+            <a href="/"><h1 class="col-md-8" style="color: white; padding-top: 20px; padding-left: 30%" href="/">SCHOOL
+                    BASE</h1></a>
+            <div class="header-homepage">
+                <ul class=" navbar-nav flex-md-row" style="padding-left: 60px; justify-content: flex-end;">
+                    <li><a href="add-student.html">ADD A STUDENT</a></li>
+                    <li><a href="all-students.html">VIEW ALL STUDENTS</a></li>
+                    <li><a href="search-student.html">SEARCH FOR A STUDENT</a></li>
+                    <li><a href="">LOG OUT</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<div class="row">
+    <div class="container" style="margin-top: 3%">
+        <div class="row">
+            <div id="student-info" class="col-md-6">
+            <!--student information will be injected here-->
+            </div>
+            <div class="col-md-5" style="margin-top: 2%">
+                <img src="/images/schoolbaselogo.png" id="student-image">
+            </div>
+        </div>
+        <div>
+            <button id="delete-student-button" type="submit">Delete Student</button>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
