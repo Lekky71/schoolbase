@@ -301,11 +301,11 @@ tr:hover {
 }
 
 .student-info {
-    margin-left: 3%;
+    /*margin-left: 3%;*/
 }
 
 .page-body {
-    background: url(/images/school_image.jpg) no-repeat center center;
+    background: url(images/school_image.jpg) no-repeat center center;
     padding: 0;
     -webkit-background-size: cover;
     background-size: cover;
@@ -318,7 +318,7 @@ tr:hover {
 }
 
 .general-container {
-    background: linear-gradient(0deg, #28a745, rgba(38, 57, 88, 0.89)), url(/images/school_image.jpg) repeat;
+    background: linear-gradient(5deg, #28a745, rgba(38, 57, 88, 0.89)), url(/images/building.jpg) repeat;
 
 }
 
