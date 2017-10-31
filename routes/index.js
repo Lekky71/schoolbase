@@ -6,8 +6,8 @@ let multer = require("multer");
 let fs = require('fs');
 let path = require('path');
 
-let dbUrl = "mongodb://localhost:27017/mydb";
-// let dbUrl = 'mongodb://hashcode:hashcode@ds229415.mlab.com:29415/schoolbase';
+// let dbUrl = "mongodb://localhost:27017/mydb";
+let dbUrl = 'mongodb://hashcode:hashcode@ds229415.mlab.com:29415/schoolbase';
 let app = express();
 
 
