@@ -1,10 +1,21 @@
 
 $(document).ready(function($){
+
+    let showDialog = function (){
+        document.getElementById("overlay").style.display = "block";
+    };
+
+    let hideDialog = function () {
+        document.getElementById("overlay").style.display = "none";
+    };
+
+    showDialog();
     $.get('/students/view/all-students',function (resp) {
         let myData = eval(resp);
         let content = $.fillTable(myData);
         $('#table-body').html('');
         $(content).appendTo('#table-body');
+        hideDialog();
     });
 
     let viewStudent = function(matricNumber){

@@ -9,6 +9,15 @@ $(document).ready(function ($) {
         return JSON.parse(userData);
     };
 
+    let showDialog = function (){
+        document.getElementById("overlay").style.display = "block";
+    };
+
+    let hideDialog = function () {
+        document.getElementById("overlay").style.display = "none";
+    };
+
+
     let studentObj = $.getUserDataFromSession();
     // document.write(studentObj);
     $('#name').val(studentObj.name);
@@ -24,7 +33,7 @@ $(document).ready(function ($) {
 
     $('#update-form').submit(function (event) {
         event.preventDefault();
-
+        showDialog();
         console.log($('#matricNumber').val());
         $(this).ajaxSubmit({
             type : 'PUT',
@@ -43,10 +52,12 @@ $(document).ready(function ($) {
             },
             contentType: 'application/json',
             success: function(data){
+                hideDialog();
                 let res = eval(data);
                 if(res.n === 1 && res.ok === 1){
-                    let reply = '<p>Student has been successfully updated </p>';
-                    $(reply).appendTo('#input-container');
+                    let reply = 'Student has been successfully updated';
+                    alert(reply);
+                    location.href = 'all-students.html'
                 }
             }
         });

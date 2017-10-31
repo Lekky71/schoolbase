@@ -159,7 +159,7 @@
 
         <div class="col">
             <label class="col-form-label-lg col-md-2 input-label">Upload Picture</label>
-            <input class="form-check" id="pic" type="file" name="pic" accept="image/gif, image/jpeg, image/png">
+            <input class="form-check" id="pic" type="file" name="pic" accept="image/gif, image/jpeg, image/png" required>
 
             <!--<button class="form-check" name="picUrl" type="button">Upload Student Picture</button>-->
         </div>
@@ -173,6 +173,12 @@
             <button type="submit">SUBMIT</button>
         </div>
     </form>
+</div>
+
+<div id="overlay" style="display: none;">
+    <div id="text">
+        <img src="/images/loading/loading-cool.gif" style="height: 100%;width: 100%;">
+    </div>
 </div>
 
 <div class="row" style="background: honeydew;">

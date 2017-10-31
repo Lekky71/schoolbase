@@ -56,6 +56,12 @@
     </div>
 </div>
 
+<div id="overlay" style="display: none;">
+    <div id="text">
+        <img src="/images/loading/loading-cool.gif" style="height: 100%;width: 100%;">
+    </div>
+</div>
+
 <div class="row add-student-input-div" id="input-container" style="margin-top: 130px;">
     <form id="update-form" class="form-group col" name="student-info-update-form" method="post" action="/students/view/all-students/edit/">
         <div class="col">
@@ -127,7 +133,7 @@
 
         <div class="col">
             <label class="col-form-label-lg col-md-2 input-label">Upload Picture</label>
-            <input class="form-check" type="file" name="pic" accept="image/gif, image/jpeg, image/png" id="pic">
+            <input class="form-check" type="file" name="pic" accept="image/gif, image/jpeg, image/png" id="pic" required>
 
             <!--<button class="form-check" name="picUrl" type="button">Upload Student Picture</button>-->
         </div>

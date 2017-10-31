@@ -4,6 +4,15 @@ $(document).ready(function($) {
     let errorresp = '<p style="font-size: large">Sorry, student does not exist on records</p>';
     let matricNumber = link.toString().split('=')[1];
 
+    let showDialog = function (){
+        document.getElementById("overlay").style.display = "block";
+    };
+
+    let hideDialog = function () {
+        document.getElementById("overlay").style.display = "none";
+    };
+
+
     $.storeUserDataInSession = function(studentObject) {
         let userObjectString = JSON.stringify(studentObject);
         window.sessionStorage.setItem('studentObject',userObjectString)
@@ -13,11 +22,13 @@ $(document).ready(function($) {
         return JSON.parse(userData);
     };
 
+    showDialog();
     $.get(`/students/view/all-students/student?matricNumber=${matricNumber}`, function (resp) {
         let data = eval(resp);
         $.studentObj = {name : $.data.name, matric_number : $.data.matricNumber };
         // document.write(resp);
         console.log(resp);
+        hideDialog();
         try{
             if(data.name !== ''){
                 $.fillDetails(data);
