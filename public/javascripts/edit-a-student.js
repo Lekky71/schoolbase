@@ -24,15 +24,30 @@ $(document).ready(function ($) {
 
     $('#update-form').submit(function (event) {
         event.preventDefault();
-        let item = $('form input');
-        let student = {item: item.val()};
 
-        $.ajax({
+        console.log($('#matricNumber').val());
+        $(this).ajaxSubmit({
             type : 'PUT',
-            url : '/students/view/all-students/edit',
-            data : $('#update-form').serialize(),
-            success : function (data) {
-                location.reload();
+            data: {
+                name: $('#name').val(),
+                matric_number: $('#matricNumber').val(),
+                faculty: $('#faculty').val(),
+                department: $('#department').val(),
+                age: $('#age').val(),
+                cgpa: $('#cgpa').val(),
+                level: $('#level').val(),
+                country: $('#country').val(),
+                state: $('#state').val(),
+                pic_url: `/public/images/studentsImages/${$('#matricNumber').val()}.jpg`,
+                about: $('#about').val()
+            },
+            contentType: 'application/json',
+            success: function(data){
+                let res = eval(data);
+                if(res.n === 1 && res.ok === 1){
+                    let reply = '<p>Student has been successfully updated </p>';
+                    $(reply).appendTo('#input-container');
+                }
             }
         });
         return false;

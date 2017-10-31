@@ -23,6 +23,7 @@ $(document).ready(function($) {
                 $.fillDetails(data);
                 $.setDelete(resp);
                 $.storeUserDataInSession(resp);
+                $('#student-image').attr('src', data.pic_url);
             }
         }
         catch (err){

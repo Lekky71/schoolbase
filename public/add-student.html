@@ -15,6 +15,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700,300' rel='stylesheet' type='text/css'/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script href="javascripts/bootstrap-js/bootstrap.js" ></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery.form/3.51/jquery.form.min.js"></script>
     <link href="stylesheets/style.css" rel="stylesheet"/>
 
     <script type="text/javascript" src="javascripts/jquery-1.10.2.js"></script>
@@ -28,19 +29,36 @@
     <script type="text/javascript" src="javascripts/jquery.easing.min.js"></script>
     <!--  Custom Scripts -->
     <script type="text/javascript" src="javascripts/custom.js"></script>
-
+    <script type="text/javascript" src="javascripts/jquery.form.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function ($) {
             $('#form').submit(function(event){
                 event.preventDefault();
-                $.post('/students/edit/add-student', $('#form').serialize(),function (data) {
-                    $('.add-student-input-div').html('');
-                    let res = eval(data);
-                    if(res.n === 1 && res.ok === 1){
-                        let reply = '<p>Student has been successfully added </p>';
-                        $(reply).appendTo('#input-container');
+
+                $(this).ajaxSubmit({
+                    data: {
+                        name: $('#name').val(),
+                        matric_number: $('#matricNumber').val(),
+                        faculty: $('#faculty').val(),
+                        department: $('#department').val(),
+                        age: $('#age').val(),
+                        cgpa: $('#cgpa').val(),
+                        level: $('#level').val(),
+                        country: $('#country').val(),
+                        state: $('#state').val(),
+                        pic_url: `/public/images/studentsImages/${$('#matricNumber').val()}.jpg`,
+                        about: $('#about').val()
+                    },
+                    contentType: 'application/json',
+                    success: function(data){
+                        let res = eval(data);
+                        if(res.n === 1 && res.ok === 1){
+                            let reply = '<p>Student has been successfully added </p>';
+                            $(reply).appendTo('#input-container');
+                        }
                     }
                 });
+                return false;
             });
         });
     </script>
@@ -55,7 +73,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#"><img class="logo-custom" src="images/schoolbaselogo.png" alt="school logo"/></a>
+            <a class="navbar-brand" href="/"><img class="logo-custom" src="images/schoolbaselogo.png" alt="school logo"/></a>
         </div>
         <div class="navbar-collapse collapse move-me">
             <ul class="nav navbar-nav navbar-right">
@@ -70,46 +88,47 @@
 </div>
 
 <div class="row add-student-input-div" id="input-container" style="margin-top: 130px;">
-    <form id="form" class="form-group col" name="student-info-form" method="post" action="/students/edit/add-student">
+    <form id="form" class="form-group col" name="student-info-form" method="post" action="/students/edit/add-student"
+          enctype="multipart/form-data">
         <div class="col">
-        <label class="col-form-label-lg col-md-2">Student Name</label>
+        <label class="col-form-label-lg col-md-2 input-label">Student Name</label>
         <input class="form-text student-input" name="name" placeholder="John Doe" required>
         </div>
         <br/>
 
         <div class="col">
-            <label class="col-form-label-lg col-md-2">Matric Number</label>
+            <label class="col-form-label-lg col-md-2 input-label">Matric Number</label>
             <input class="form-text student-input" name="matricNumber" placeholder="CSC/20**/***" required>
         </div>
         <br/>
 
         <div class="col">
-            <label class="col-form-label-lg col-md-2">Faculty</label>
+            <label class="col-form-label-lg col-md-2 input-label">Faculty</label>
             <input class="form-text student-input" name="faculty" placeholder="Sciences" required>
         </div>
         <br/>
 
         <div class="col">
-            <label class="col-form-label-lg col-md-2" >Department</label>
+            <label class="col-form-label-lg col-md-2 input-label" >Department</label>
             <input class="form-text student-input" name="department"  placeholder="Physics" required>
         </div>
         <br/>
 
         <div class="col">
-            <label class="col-form-label-lg col-md-2" >Age of Student</label>
+            <label class="col-form-label-lg col-md-2 input-label" >Age of Student</label>
             <input class="form-text student-input" name="age"  placeholder="38" required>
         </div>
         <br/>
 
         <div class="col">
-            <label class="col-form-label-lg col-md-2" >Cumulative Grade Point Average (CGPA)</label>
+            <label class="col-form-label-lg col-md-2 input-label" >Cumulative Grade Point Average (CGPA)</label>
             <input class="form-text student-input" name="cgpa"  placeholder="4.75" required>
         </div>
 
         <br/>
 
         <div class="col">
-            <label class="col-form-label-lg col-md-2" >Student Level</label>
+            <label class="col-form-label-lg col-md-2 input-label" >Student Level</label>
             <select class="form-text" name="level" type="number" required>
                 <option>100</option>
                 <option>200</option>
@@ -125,12 +144,12 @@
         <div class="col">
             <div class="flex-row">
             <div>
-                <label class="col-form-label-lg col-md-2" >Country</label>
+                <label class="col-form-label-lg col-md-2 input-label" >Country</label>
                 <input class="form-text student-input-origin" name="country" placeholder="Nigeria" required>
             </div>
                 <br/>
             <div>
-                <label class="col-form-label-lg col-md-2" >State Of Origin</label>
+                <label class="col-form-label-lg col-md-2 input-label" >State Of Origin</label>
                 <input class="form-text student-input-origin" name="state" placeholder="Osun" required>
             </div>
             </div>
@@ -139,14 +158,14 @@
 
 
         <div class="col">
-            <label class="col-form-label-lg col-md-2">Upload Picture</label>
-            <input class="form-check" type="file" name="pic" accept="image/gif, image/jpeg, image/png">
+            <label class="col-form-label-lg col-md-2 input-label">Upload Picture</label>
+            <input class="form-check" id="pic" type="file" name="pic" accept="image/gif, image/jpeg, image/png">
 
             <!--<button class="form-check" name="picUrl" type="button">Upload Student Picture</button>-->
         </div>
         <br/>
         <div class="col">
-            <label class="col-form-label-lg col-md-2">About Student</label>
+            <label class="col-form-label-lg col-md-2 input-label">About Student</label>
             <input class="form-text student-input" name="about"  type="text" style="height: 200px" required>
         </div>
 

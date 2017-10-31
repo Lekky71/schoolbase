@@ -16,7 +16,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script href="javascripts/bootstrap-js/bootstrap.js" ></script>
     <link href="stylesheets/style.css" rel="stylesheet"/>
-    <script type="text/javascript" src="javascripts/edit-a-student.js"></script>
 
     <script type="text/javascript" src="javascripts/jquery-1.10.2.js"></script>
     <!--  Core Bootstrap Script -->
@@ -29,6 +28,8 @@
     <script type="text/javascript" src="javascripts/jquery.easing.min.js"></script>
     <!--  Custom Scripts -->
     <script type="text/javascript" src="javascripts/custom.js"></script>
+    <script type="text/javascript" src="javascripts/jquery.form.min.js"></script>
+    <script type="text/javascript" src="javascripts/edit-a-student.js"></script>
 
 </head>
 <body class=" general-container">
@@ -58,44 +59,44 @@
 <div class="row add-student-input-div" id="input-container" style="margin-top: 130px;">
     <form id="update-form" class="form-group col" name="student-info-update-form" method="post" action="/students/view/all-students/edit/">
         <div class="col">
-            <label class="col-form-label-lg col-md-2">Student Name</label>
+            <label class="col-form-label-lg col-md-2 input-label">Student Name</label>
             <input class="form-text student-input" name="name" placeholder="John Doe" id="name" required>
         </div>
         <br/>
 
         <div class="col">
-            <label class="col-form-label-lg col-md-2">Matric Number</label>
+            <label class="col-form-label-lg col-md-2 input-label">Matric Number (Not Editable)</label>
             <input class="form-text student-input" name="matricNumber" placeholder="CSC/20**/***" id="matricNumber" readonly>
         </div>
         <br/>
 
         <div class="col">
-            <label class="col-form-label-lg col-md-2">Faculty</label>
+            <label class="col-form-label-lg col-md-2 input-label">Faculty</label>
             <input class="form-text student-input" name="faculty" placeholder="Sciences" id="faculty" required>
         </div>
         <br/>
 
         <div class="col">
-            <label class="col-form-label-lg col-md-2" >Department</label>
+            <label class="col-form-label-lg col-md-2 input-label" >Department</label>
             <input class="form-text student-input" name="department"  placeholder="Physics" id="department" required>
         </div>
         <br/>
 
         <div class="col">
-            <label class="col-form-label-lg col-md-2" >Age of Student</label>
+            <label class="col-form-label-lg col-md-2 input-label" >Age of Student</label>
             <input class="form-text student-input" name="age"  placeholder="38" id="age" required>
         </div>
         <br/>
 
         <div class="col">
-            <label class="col-form-label-lg col-md-2" >Cumulative Grade Point Average (CGPA)</label>
+            <label class="col-form-label-lg col-md-2 input-label" >Cumulative Grade Point Average (CGPA)</label>
             <input class="form-text student-input" name="cgpa"  placeholder="4.75" id="cgpa" required>
         </div>
 
         <br/>
 
         <div class="col">
-            <label class="col-form-label-lg col-md-2" >Student Level</label>
+            <label class="col-form-label-lg col-md-2 input-label" >Student Level</label>
             <select class="form-text" name="level" id="level" required>
                 <option>100</option>
                 <option>200</option>
@@ -111,12 +112,12 @@
         <div class="col">
             <div class="flex-row">
                 <div>
-                    <label class="col-form-label-lg col-md-2" >Country</label>
+                    <label class="col-form-label-lg col-md-2 input-label" >Country</label>
                     <input class="form-text student-input-origin" name="country" placeholder="Nigeria" id="country" required>
                 </div>
                 <br/>
                 <div>
-                    <label class="col-form-label-lg col-md-2" >State Of Origin</label>
+                    <label class="col-form-label-lg col-md-2 input-label" >State Of Origin</label>
                     <input class="form-text student-input-origin" name="state" placeholder="Osun" id="state" required>
                 </div>
             </div>
@@ -125,14 +126,14 @@
 
 
         <div class="col">
-            <label class="col-form-label-lg col-md-2">Upload Picture</label>
+            <label class="col-form-label-lg col-md-2 input-label">Upload Picture</label>
             <input class="form-check" type="file" name="pic" accept="image/gif, image/jpeg, image/png" id="pic">
 
             <!--<button class="form-check" name="picUrl" type="button">Upload Student Picture</button>-->
         </div>
         <br/>
         <div class="col">
-            <label class="col-form-label-lg col-md-2">About Student</label>
+            <label class="col-form-label-lg col-md-2 input-label">About Student</label>
             <input class="form-text student-input" name="about"  type="text" style="height: 200px" id="about"required>
         </div>
 

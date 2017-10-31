@@ -332,3 +332,7 @@ tr:hover {
     background: #2f9484;
     border-color: #2f9484;
 }
+
+.input-label {
+    color: ghostwhite;
+}
