@@ -318,7 +318,7 @@ tr:hover {
 }
 
 .general-container {
-    background: url(/images/school_image.jpg) no-repeat ;
+    background: url(/images/school_image.jpg) repeat ;
 
 }
 /*linear-gradient(1deg, #28a745, rgba(38, 57, 88, 0.89)),*/
