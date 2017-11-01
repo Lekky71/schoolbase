@@ -278,7 +278,7 @@ h1::after {
 }
 
 .all-student-table-row:hover {
-    background: #2f9484;
+    background: #28a745 ;
 }
 
 li:hover{
@@ -318,10 +318,10 @@ tr:hover {
 }
 
 .general-container {
-    background: linear-gradient(5deg, #28a745, rgba(38, 57, 88, 0.89)), url(/images/building.jpg) repeat;
+    background: url(/images/school_image.jpg) no-repeat ;
 
 }
-
+/*linear-gradient(1deg, #28a745, rgba(38, 57, 88, 0.89)),*/
 .student-page-button {
     background: rgba(38, 57, 88, 0.89);
     width: 200px;

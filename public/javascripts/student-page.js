@@ -50,23 +50,23 @@ $(document).ready(function($) {
 
         $('title').html(`${student.name}`);
       let content =  `<p><h2>${student.name}</h2></p>`+
-          `<div class="col-md-7 row ">`+
-            `<label>Matriculation Number :</label><p class="student-info">${student.matric_number}</p></div>`+
+          `<div class="col-md-7 row">`+
+            `<label>Matriculation Number : ${student.matric_number}</div>`+
             `<div class="col-md-7 row">`+
-            `<label>Faculty :</label>`+
-        `<p class="student-info">${student.faculty}</p></div>`+
-            `<div class="col-md-7 row"><label>Department  :</label> <p class="student-info">${student.department}</p></div>`+
-            `<div class="col-md-7 row"><label>Student\'s age  :</label> <p class="student-info">${student.age}</p></div>`+
-            `<div class="col-md-7 row"><label>Cumulative Grade Point Average  :</label> <p class="student-info">${student.cgpa}</p></div>`+
-            `<div class="col-md-7 row"><label>State  :</label> <p class="student-info">${student.state}</p></div>`+
-            `<div class="col-md-7 row"><label>Country  :</label> <p class="student-info">${student.country}</p></div>`+
-            `<div class="col-md-7 row"><label>About  :</label> <p class="student-info">${student.about}</p></div>`;
+            `<label>Faculty :</label>  ${student.faculty}</div>`+
+            `<div class="col-md-7 row"><label>Department  :</label>   ${student.department}</div>`+
+            `<div class="col-md-7 row"><label>Student\'s age  :</label>  ${student.age}</div>`+
+            `<div class="col-md-7 row"><label>Cumulative Grade Point Average  :</label>  ${student.cgpa}</div>`+
+            `<div class="col-md-7 row"><label>State  :</label>  ${student.state}</div>`+
+            `<div class="col-md-7 row"><label>Country  :</label>  ${student.country}</div>`+
+            `<div class="col-md-7 row"><label>About  :</label>  ${student.about}</div>`;
 
         $(content).appendTo('#student-info');
     };
 
     $.setDelete = function (student) {
         $('#delete-student-button').on('click',function () {
+            showDialog();
             $.ajax({
                 url : '/students/view/all-students/student/delete?student='+student.matric_number,
                 type : 'DELETE',
@@ -74,6 +74,7 @@ $(document).ready(function($) {
                 success : function(result){
                     // document.write(result);
                     if(result === 1){
+                        hideDialog();
                         alert('Student has been deleted');
                         window.document.location = 'all-students.html';
                         // window.location.reload();

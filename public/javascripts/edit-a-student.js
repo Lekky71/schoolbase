@@ -57,7 +57,7 @@ $(document).ready(function ($) {
                 if(res.n === 1 && res.ok === 1){
                     let reply = 'Student has been successfully updated';
                     alert(reply);
-                    location.href = 'all-students.html'
+                    window.document.location = 'all-students.html'
                 }
             }
         });

@@ -22,7 +22,7 @@ $(document).ready(function () {
                 hideDialog();
                 let reply = 'Student has been successfully added';
                 alert(reply);
-                location.href = 'all-students.html'
+                window.document.location = 'all-students.html'
             }
         });
 

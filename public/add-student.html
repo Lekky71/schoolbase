@@ -32,9 +32,18 @@
     <script type="text/javascript" src="javascripts/jquery.form.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function ($) {
+
+            let showDialog = function (){
+                document.getElementById("overlay").style.display = "block";
+            };
+
+            let hideDialog = function () {
+                document.getElementById("overlay").style.display = "none";
+            };
+
             $('#form').submit(function(event){
                 event.preventDefault();
-
+                showDialog();
                 $(this).ajaxSubmit({
                     data: {
                         name: $('#name').val(),
@@ -53,8 +62,15 @@
                     success: function(data){
                         let res = eval(data);
                         if(res.n === 1 && res.ok === 1){
-                            let reply = '<p>Student has been successfully added </p>';
-                            $(reply).appendTo('#input-container');
+                            hideDialog();
+                            let reply = 'Student has been successfully added';
+                            alert(reply);
+                            window.document.location = 'all-students.html'
+                        }
+                        else {
+                            hideDialog();
+                            let reply = "A student with this Matriculation Number Exists, please change it";
+                            alert(reply);
                         }
                     }
                 });
@@ -77,10 +93,10 @@
         </div>
         <div class="navbar-collapse collapse move-me">
             <ul class="nav navbar-nav navbar-right">
+                <li><a href="/">HOME</a></li>
                 <li><a href="add-student.html">ADD A STUDENT</a></li>
                 <li><a href="all-students.html">VIEW ALL STUDENTS</a></li>
                 <li><a href="search-student.html">SEARCH FOR A STUDENT</a></li>
-                <li><a href="">LOG OUT</a></li>
             </ul>
         </div>
 
@@ -92,44 +108,44 @@
           enctype="multipart/form-data">
         <div class="col">
         <label class="col-form-label-lg col-md-2 input-label">Student Name</label>
-        <input class="form-text student-input" name="name" placeholder="John Doe" required>
+        <input class="form-text student-input" name="name" placeholder="John Doe" required type="text">
         </div>
         <br/>
 
         <div class="col">
             <label class="col-form-label-lg col-md-2 input-label">Matric Number</label>
-            <input class="form-text student-input" name="matricNumber" placeholder="CSC/20**/***" required>
+            <input class="form-text student-input" name="matricNumber" placeholder="CSC/20**/***" required type="text">
         </div>
         <br/>
 
         <div class="col">
             <label class="col-form-label-lg col-md-2 input-label">Faculty</label>
-            <input class="form-text student-input" name="faculty" placeholder="Sciences" required>
+            <input class="form-text student-input" name="faculty" placeholder="Sciences" required type="text">
         </div>
         <br/>
 
         <div class="col">
             <label class="col-form-label-lg col-md-2 input-label" >Department</label>
-            <input class="form-text student-input" name="department"  placeholder="Physics" required>
+            <input class="form-text student-input" name="department"  placeholder="Physics" required type="text">
         </div>
         <br/>
 
         <div class="col">
             <label class="col-form-label-lg col-md-2 input-label" >Age of Student</label>
-            <input class="form-text student-input" name="age"  placeholder="38" required>
+            <input class="form-text student-input" name="age"  placeholder="38" required type="number">
         </div>
         <br/>
 
         <div class="col">
             <label class="col-form-label-lg col-md-2 input-label" >Cumulative Grade Point Average (CGPA)</label>
-            <input class="form-text student-input" name="cgpa"  placeholder="4.75" required>
+            <input class="form-text student-input" name="cgpa"  placeholder="4.75" required type="text">
         </div>
 
         <br/>
 
         <div class="col">
             <label class="col-form-label-lg col-md-2 input-label" >Student Level</label>
-            <select class="form-text" name="level" type="number" required>
+            <select class="form-text" name="level" required>
                 <option>100</option>
                 <option>200</option>
                 <option>300</option>
@@ -145,12 +161,12 @@
             <div class="flex-row">
             <div>
                 <label class="col-form-label-lg col-md-2 input-label" >Country</label>
-                <input class="form-text student-input-origin" name="country" placeholder="Nigeria" required>
+                <input class="form-text student-input-origin" name="country" placeholder="Nigeria" required type="text">
             </div>
                 <br/>
             <div>
                 <label class="col-form-label-lg col-md-2 input-label" >State Of Origin</label>
-                <input class="form-text student-input-origin" name="state" placeholder="Osun" required>
+                <input class="form-text student-input-origin" name="state" placeholder="Osun" required type="text">
             </div>
             </div>
         </div>
@@ -166,7 +182,7 @@
         <br/>
         <div class="col">
             <label class="col-form-label-lg col-md-2 input-label">About Student</label>
-            <input class="form-text student-input" name="about"  type="text" style="height: 200px" required>
+            <textarea class="form-text student-input" name="about"  cols="10" rows="10" maxlength="500" style="height: 200px" required></textarea>
         </div>
 
         <div class="col" style="margin-top: 20px; ">
@@ -181,7 +197,7 @@
     </div>
 </div>
 
-<div class="row" style="background: honeydew;">
+<div class="row" style="background: ghostwhite; padding-left: 6%">
     <div class="row set-row-pad">
         <div class="col-lg-4 col-md-4 col-sm-4   col-lg-offset-1 col-md-offset-1 col-sm-offset-1 "
              data-scroll-reveal="enter from the bottom after 0.4s">
